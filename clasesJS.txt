@@ -1,0 +1,11 @@
+Clases javaScript: 
+
+Clase Docente: nombre, contraseña, grupos, planificaciones, calendario
+
+Clase Grupo: Nombre, grado, Institucion, cantAlumnos
+
+Clase Planificacion: grupos, fecha, espacio, unidadCurricular, competenciaGeneral, competenciaEspecifica, contenidoEstructural, metasAprendizaje, planesAprendizaje, notas
+
+Clase Calendario: meses, fechaActual, eventos
+
+Clase evento: titulo, descripcion, color

@@ -1,0 +1,93 @@
+#main_nav .nav-link:hover .icon,
+#main_nav .nav-link:hover span {
+  transform: scale(1.2); /* Agranda el icono y el texto */
+  color: #d9534f; /* Cambia el color del texto a rojo para el nav con ID main_nav */
+}
+
+.nav-link:hover .icon,
+.nav-link:hover span {
+  color: whitesmoke; /* Cambia el color del texto a blanco para los demás navs */
+  transition:
+    transform 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+.color-selector {
+  width: 40px; /* Ancho del círculo */
+  height: 40px; /* Alto del círculo */
+  padding: 0; /* Sin padding */
+  border-radius: 50%; /* Hace que el input sea circular */
+  border: none; /* Opcional: elimina el borde */
+  cursor: pointer; /* Muestra un cursor de puntero */
+}
+
+/* Para el nav cuando se reduce el tamaño de la pantall  */
+/* Estilo base */
+.icon {
+  font-size: 24px;
+}
+
+/* Configuración para pantallas de hasta 1250px */
+@media (max-width: 1195px) {
+  .nav-tabs {
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Alinea los elementos a la izquierda */
+    width: 100%; /* Ocupa el ancho completo */
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 100%; /* Cada item ocupa el ancho completo */
+    margin: 0; /* Quita el margen para evitar separaciones */
+    text-align: center; /* Alinea el texto a la izquierda */
+    padding: 10px 0; /* Espaciado vertical para cada item */
+  }
+
+  .nav-link {
+    width: 100%; /* Asegura que el link ocupe el ancho completo */
+    padding-left: 20px; /* Añade espacio desde la izquierda */
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+  }
+}
+
+/* ------------------------------- Calendario ------------------------------- */
+.calendar ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0;
+  margin: 0;
+}
+
+.calendar .day-name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar .day {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border 0.2s; /* Transiciones suaves */
+}
+
+.calendar .day:hover {
+  transform: scale(1.1); /* Aumentar el tamaño al seleccionar */
+  border: 2px solid #ff3333; /* Bordes rojo */
+  background-color: white; /* Fondo blanco al seleccionar */
+}
+
+.calendar #selected {
+  transform: scale(1.1); /* Aumentar el tamaño al seleccionar */
+  border: 2px solid red; /* Bordes rojo */
+  background-color: white; /* Fondo blanco al seleccionar */
+  z-index: 1; /* Asegurarse de que esté por encima de otros días */
+}

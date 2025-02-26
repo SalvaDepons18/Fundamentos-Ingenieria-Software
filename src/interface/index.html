@@ -1,0 +1,699 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Pagina web, cuyo objetivo es ayudar a los docentes con su planificacion de clases, asi como con la organizacion de eventos y mucho mas!"
+      content="Obligatorio para FIS ORT 2023."
+    />
+    <title>Teacher's pet</title>
+    <link rel="icon" href="./logo.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ------------------------- Menú de navegación ------------------------- -->
+    <header>
+      <nav class="navbar navbar-expand-xl bg-white" id="main_nav">
+        <div class="container-fluid d-flex justify-content-center">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"
+            aria-controls="navbarContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Menú colapsable -->
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarContent"
+          >
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark text-center border-0 bg-white mx-5 m-0"
+                  data-bs-toggle="tab"
+                  data-bs-target="#planificacion_clases"
+                  role="tab"
+                  aria-controls="planificacion_clases"
+                  aria-selected="false"
+                >
+                  <span class="icon d-block mb-1" style="font-size: 24px"
+                    >✏️</span
+                  >
+                  <span class="d-block">Planificación de Clases</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark text-center border-0 bg-white mx-5 m-0"
+                  data-bs-toggle="tab"
+                  data-bs-target="#grupos"
+                  role="tab"
+                  aria-controls="grupos"
+                  aria-selected="false"
+                >
+                  <span class="icon d-block mb-1" style="font-size: 24px"
+                    >👥</span
+                  >
+                  <span class="d-block">Grupos</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-dark text-center border-0 bg-white mx-5 m-0"
+                  data-bs-toggle="tab"
+                  data-bs-target="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >
+                  <span class="icon d-block mb-1" style="font-size: 24px"
+                    >🏠</span
+                  >
+                  <span class="d-block">Home</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark text-center border-0 bg-white mx-5 m-0"
+                  data-bs-toggle="tab"
+                  data-bs-target="#calendario"
+                  role="tab"
+                  aria-controls="calendario"
+                  aria-selected="false"
+                >
+                  <span class="icon d-block mb-1" style="font-size: 24px"
+                    >📅</span
+                  >
+                  <span class="d-block">Calendario</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-dark text-center border-0 bg-white mx-5 m-0"
+                  data-bs-toggle="tab"
+                  data-bs-target="#configuracion"
+                  role="tab"
+                  aria-controls="configuracion"
+                  aria-selected="false"
+                >
+                  <span class="icon d-block mb-1" style="font-size: 24px"
+                    >⚙️</span
+                  >
+                  <span class="d-block">Configuración</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ------------------------------ Secciones ------------------------------ -->
+    <main>
+      <div class="tab-content p-5">
+        <!-- -------------------------------- Home ----------------------------------->
+        <div
+          class="my-5 text-center tab-pane active m-5 p-5"
+          id="home"
+          role="tabpanel"
+        >
+          <!-- my-5 margenes verticales active es por que es la pesta;a predeterminada -->
+          <img
+            src="logo.ico"
+            alt="Teacher's Pet Logo"
+            class="img-fluid"
+            style="width: 200px"
+          />
+          <!-- img-fluid hace la imagen responsive  -->
+          <h1 class="text-danger mt-4">TEACHER'S PET</h1>
+          <p class="text-muted">
+            Bienvenido a Teacher's pet la mejor pagina web para la planificacion
+            de clases.
+          </p>
+          <!-- text-muted color de texto gris  -->
+        </div>
+
+        <!-- ---------------------------- Planificacion ------------------------------>
+        <div
+          class="container p-4 tab-pane fade mt-0"
+          id="planificacion_clases"
+          role="tabpanel"
+        >
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <h2>Seleccione Grupo:</h2>
+              <div class="col-md-8">
+                <ul id="list-group-planification" class="ml-0 pl-0"></ul>
+              </div>
+
+              <!-- -------------------------- Nav Ver-Modificar -------------------------- -->
+              <nav class="navbar bg-white d-flex mt-4">
+                <ul class="nav nav-tabs d-flex justify-content-between w-100">
+                  <li class="nav-item">
+                    <button
+                      class="nav-link text-dark border-0 bg-white mx-1"
+                      data-bs-toggle="tab"
+                      data-bs-target="#ver_planificacion"
+                      role="tab"
+                      aria-controls="ver_planificacion"
+                      aria-selected="false"
+                    >
+                      <span
+                        id="view_planification"
+                        class="btn btn-outline-danger"
+                        >VER</span
+                      >
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button
+                      class="nav-link text-dark border-0 bg-white mx-1 active"
+                      data-bs-toggle="tab"
+                      data-bs-target="#modificar_planificacion"
+                      role="tab"
+                      aria-controls="modificar_planificacion"
+                      aria-selected="true"
+                    >
+                      <span class="btn btn-outline-danger">MODIFICAR</span>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- ----------------------------- Seccion dias ------------------------------ -->
+            <div class="col-12 col-md-9 tab-content">
+              <!-- ---------------------------- Listado Dias ----------------------------- -->
+              <div class="d-flex align-items-left justify-content-left mt-3">
+                <label
+                  for="day_selected"
+                  class="form-label fw-bold me-3 h3 text-danger"
+                  >Día:</label
+                >
+                <select
+                  id="day_selected"
+                  class="form-select text-danger border-danger text-center"
+                >
+                  <option value="lunes">Lunes</option>
+                  <option value="martes">Martes</option>
+                  <option value="miercoles">Miércoles</option>
+                  <option value="jueves">Jueves</option>
+                  <option value="viernes">Viernes</option>
+                </select>
+              </div>
+
+              <!-- -------------------------- Fin listado dias -------------------------- -->
+              <!-- ------------------------------ Modificar ------------------------------ -->
+              <div
+                class="tab-pane active"
+                id="modificar_planificacion"
+                role="tabpanel"
+              >
+                <form id="form_planification">
+                  <div class="mb-3">
+                    <label for="spaceSelect_modify">Espacio:</label>
+                    <select id="spaceSelect_modify" class="form-select">
+                      <option>Cientifico-Matematico</option>
+                      <option>Comunicación</option>
+                      <option>Ciencias Sociales y Humanidades</option>
+                      <option>Creativo-Artístico</option>
+                      <option>Desarrollo Personal</option>
+                      <option>Conciencia Corporal</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="unit_modify">Unidad Curricular:</label>
+                    <select id="unit_modify" class="form-select">
+                      <option>Matematica</option>
+                      <option>Lengua y Literatura</option>
+                      <option>Ciencias Sociales</option>
+                      <option>Ciencias Naturales</option>
+                      <option>Educación Física</option>
+                      <option>Arte</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="generalCompetence_modify"
+                      >Competencia General:</label
+                    >
+                    <select id="generalCompetence_modify" class="form-select">
+                      <option>Pensamiento Cientifico</option>
+                      <option>Comunicación</option>
+                      <option>Pensamiento Creativo</option>
+                      <option>Pensamiento Científico</option>
+                      <option>Pensamiento Computacional</option>
+                      <option>Metacognición</option>
+                      <option>Educación en Valores y Ciudadanía</option>
+                      <option>Desarrollo Personal y Social</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="specificCompetence_modify"
+                      >Competencia Especifica:</label
+                    >
+                    <textarea
+                      id="specificCompetence_modify"
+                      class="form-control"
+                      placeholder="Agregue Competencia Especifica..."
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="structuralContent_modify"
+                      >Contenido Estructural:</label
+                    >
+
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="structuralContent_modify"
+                        placeholder="Agregue estructuras..."
+                        class="form-control"
+                      />
+                      <button
+                        id="add_structuralContent"
+                        class="btn btn-outline-danger"
+                        type="button"
+                      >
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 p-3 border border-danger-subtle rounded">
+                    <ul id="ul_structuralContent" class="list-unstyled"></ul>
+                    <button
+                      id="remove_structuralContent"
+                      class="btn btn-outline-danger"
+                      type="button"
+                    >
+                      ELIMINAR
+                    </button>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="learningGoals_modify"
+                      >Metas de Aprendizaje:</label
+                    >
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        placeholder="Agregue metas..."
+                        id="learningGoals_modify"
+                        class="form-control"
+                      />
+                      <button
+                        id="add_learningGoals"
+                        class="btn btn-outline-danger"
+                        type="button"
+                      >
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 p-3 border border-danger-subtle rounded">
+                    <ul id="ul_learningGoals" class="list-unstyled"></ul>
+                    <button
+                      id="remove_learningGoals"
+                      class="btn btn-outline-danger"
+                      type="button"
+                    >
+                      ELIMINAR
+                    </button>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="learningPlans_modify"
+                      >Planes de Aprendizaje:</label
+                    >
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="learningPlans_modify"
+                        class="form-control"
+                        placeholder="Agregue plan..."
+                      />
+                      <button
+                        id="add_learningPlans"
+                        class="btn btn-outline-danger"
+                        type="button"
+                      >
+                        AGREGAR
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 p-3 border border-danger-subtle rounded">
+                    <ul id="ul_learningPlans" class="list-unstyled"></ul>
+                    <button
+                      id="remove_learningPlans"
+                      class="btn btn-outline-danger"
+                      type="button"
+                    >
+                      ELIMINAR
+                    </button>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="notes_modify">Notas:</label>
+                    <textarea
+                      id="notes_modify"
+                      class="form-control"
+                      placeholder="Agregue notas..."
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-danger" type="button">
+                      CANCELAR
+                    </button>
+                    <button
+                      id="save_changes_plan"
+                      class="btn btn-danger"
+                      type="button"
+                    >
+                      GUARDAR CAMBIOS
+                    </button>
+                  </div>
+                  <p
+                    id="error_message_add_plan"
+                    class="text-danger text-center justify-content-center h5"
+                  ></p>
+                </form>
+              </div>
+              <!-- --------------------------------- Ver --------------------------------- -->
+              <div class="tab-pane fade" id="ver_planificacion" role="tabpanel">
+                <div>
+                  <div class="mb-3">
+                    <p class="fw-bold">Espacio:</p>
+                    <span id="space_view">Vacio</span>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold">Unidad Curricular:</p>
+                    <span id="unit_view">Vacio</span>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold">Competencia General:</p>
+                    <span id="generalCompetence_view">Vacio</span>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold">Competencia Especifica:</p>
+                    <span id="specificCompetence_view">Vacio</span>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold">Contenido Estructural:</p>
+                    <span id="structuralContent_view">Vacio</span>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold" for="learningGoals_view">
+                      Metas de Aprendizaje:
+                    </p>
+                    <ul id="learningGoals_view">
+                      <li></li>
+                    </ul>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold" for="learningPlans_view">
+                      Planes de Aprendizaje:
+                    </p>
+                    <ul id="learningPlans_view">
+                      <li></li>
+                    </ul>
+                  </div>
+
+                  <div class="mb-3">
+                    <p class="fw-bold">Notas:</p>
+                    <span id="notes_view">Vacio</span>
+                  </div>
+                </div>
+              </div>
+              <!-- ------------------------------- Fin Ver ------------------------------- -->
+            </div>
+          </div>
+        </div>
+
+        <!-- -------------------------- Grupos-------------------------- -->
+        <div class="tab-pane fade" id="grupos" role="tabpanel">
+          <div class="row mx-5 p-4">
+            <!-- ------------------------- Agregar nuevo Grupo ------------------------- -->
+            <div class="col-md-6 mr-2">
+              <form id="form_group">
+                <h3 class="text-center">Agregar Nuevo Grupo:</h3>
+                <div class="mb-3">
+                  <label for="name_group" class="form-label">Nombre:</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    id="name_group"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="grade_group" class="form-label">Grado:</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    id="grade_group"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="institucion_group" class="form-label"
+                    >Institución Educativa:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    id="institucion_group"
+                    value="ORT"
+                    required
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="cant_group" class="form-label"
+                    >Cantidad de Alumnos:</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control rounded-pill"
+                    id="cant_group"
+                    min="0"
+                    max="900"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  id="create_group"
+                  class="btn btn-danger w-100 rounded-pill"
+                >
+                  Crear
+                </button>
+              </form>
+            </div>
+
+            <!-- -------------------------- Listado de Grupos -------------------------- -->
+            <div class="col-md-6 ml-2">
+              <h3 class="text-center mb-3">Grupos</h3>
+              <ul id="list-group" class="list-group"></ul>
+              <button
+                id="delete_group"
+                type="button"
+                class="btn btn-danger w-100 rounded-pill mt-4"
+              >
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ----------------------------- Calendario ------------------------------ -->
+        <div class="tab-pane fade" id="calendario" role="tabpanel">
+          <div class="row px-3 px-md-5 pt-4">
+            <!-- Formulario de Evento -->
+            <div class="col-12 col-md-4 p-3">
+              <form id="createEvent">
+                <legend class="text-center">Agregar nuevo evento:</legend>
+                <div class="mb-3">
+                  <label for="nombre_evento" class="form-label"
+                    >Nombre del evento:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    id="nombre_evento"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="descripEvento">Descripción:</label>
+                  <textarea
+                    id="descripEvento"
+                    class="form-control"
+                    placeholder="Agregue descripción del evento..."
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="color_evento" class="form-label">Color:</label>
+                  <input
+                    type="color"
+                    class="form-control form-control-color"
+                    id="color_evento"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-danger w-100 rounded-pill">
+                  Agregar
+                </button>
+              </form>
+              <p
+                id="error_message_add_event"
+                class="text-danger text-center justify-content-center h5"
+              ></p>
+            </div>
+
+            <!-- Calendario -->
+            <div class="col-12 col-md-8 p-3">
+              <div class="calendar p-3">
+                <h3 id="monthYear" class="text-center mb-3">Noviembre 2024</h3>
+                <div class="d-flex justify-content-between mb-2">
+                  <button id="prevMonth" class="btn btn-outline-danger">
+                    Anterior
+                  </button>
+                  <button id="nextMonth" class="btn btn-outline-danger">
+                    Siguiente
+                  </button>
+                </div>
+                <ol
+                  id="dayNames"
+                  class="d-flex justify-content-between text-center mb-1"
+                >
+                  <li class="day-name flex-fill">L</li>
+                  <li class="day-name flex-fill">M</li>
+                  <li class="day-name flex-fill">M</li>
+                  <li class="day-name flex-fill">J</li>
+                  <li class="day-name flex-fill">V</li>
+                  <li class="day-name flex-fill">S</li>
+                  <li class="day-name flex-fill">D</li>
+                </ol>
+                <ol id="daysList" class="row row-cols-7 text-center">
+                  <li class="day col" id="">01</li>
+                  <li class="day col" id="">02</li>
+                  <li class="day col" id="">03</li>
+                  <li class="day col" id="">04</li>
+                  <li class="day col" id="">05</li>
+                  <li class="day col" id="">06</li>
+                  <li class="day col" id="">07</li>
+                  <li class="day col" id="">08</li>
+                  <li class="day col" id="">09</li>
+                  <li class="day col" id="">10</li>
+                  <li class="day col" id="">11</li>
+                  <li class="day col" id="">12</li>
+                  <li class="day col" id="">13</li>
+                  <li class="day col" id="">14</li>
+                  <li class="day col" id="">15</li>
+                  <li class="day col" id="">16</li>
+                  <li class="day col" id="">17</li>
+                  <li class="day col" id="">18</li>
+                  <li class="day col" id="">19</li>
+                  <li class="day col" id="">20</li>
+                  <li class="day col" id="">21</li>
+                  <li class="day col" id="">22</li>
+                  <li class="day col" id="">23</li>
+                  <li class="day col" id="">24</li>
+                  <li class="day col" id="">25</li>
+                  <li class="day col" id="">26</li>
+                  <li class="day col" id="">27</li>
+                  <li class="day col" id="">28</li>
+                  <li class="day col" id="">29</li>
+                  <li class="day col" id="">30</li>
+                </ol>
+              </div>
+              <div id="eventDetails" class="mt-3 p-3 border rounded">
+                <h4>Eventos del día seleccionado:</h4>
+                <p>No hay eventos para este día.</p>
+              </div>
+              <button
+                id="delete_events_day"
+                type="button"
+                class="btn btn-danger rounded-pill mt-4"
+              >
+                Eliminar Eventos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ------------------------------ Footer ------------------------------ -->
+    <footer class="bg-dark text-white mt-5 p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Sobre nosotros</h4>
+            <p>
+              Teacher's Pet es una plataforma diseñada para ayudar a los
+              docentes en la planificación de clases y la organización de
+              eventos.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h5>Enlaces útiles</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://www.ort.edu.uy" class="text-white"
+                  >Universidad ORT</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Contacto</h5>
+            <p>Email: info@teacherspet.com</p>
+            <p>Teléfono: (123) 456-7890</p>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <small
+            >&copy; 2024 Teacher's Pet. Todos los derechos reservados.</small
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/domain/class/Main.js"></script>
+    <!-- -------- <script src="/src/domain/class/Sistema.js"></script> --------- -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
